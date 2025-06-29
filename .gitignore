@@ -1,0 +1,17 @@
+*.out
+*.o
+*.swp
+*.a
+\#*\#
+*~
+.vscode
+compile_commands.json
+notes.txt
+.cache
+
+include/basic.h
+include/linked_list.h
+include/macros.h
+include/my_printf.h
+
+minishell
