@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   nop.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 00:55:22 by angsanch          #+#    #+#             */
-/*   Updated: 2025/08/04 22:20:48 by angsanch         ###   ########.fr       */
+/*   Created: 2025/08/04 22:09:33 by angsanch          #+#    #+#             */
+/*   Updated: 2025/08/04 22:16:03 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini.h"
+#include "node_print.h"
 
-int	main(void)
+void	node_print_nop(t_node __attribute__((unused))*node, unsigned int depth)
 {
-	while (1)
-	{
-	}
-	return (0);
+	print_depth(depth);
+	my_printf("%s\n", "NOP");
 }

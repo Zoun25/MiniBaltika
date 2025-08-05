@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   line.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 00:55:22 by angsanch          #+#    #+#             */
-/*   Updated: 2025/08/04 22:20:48 by angsanch         ###   ########.fr       */
+/*   Created: 2025/08/05 00:41:23 by angsanch          #+#    #+#             */
+/*   Updated: 2025/08/05 00:57:13 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini.h"
+#include "node_print.h"
 
-int	main(void)
+void	node_print_line(t_node *node, unsigned int depth)
 {
-	while (1)
-	{
-	}
-	return (0);
+	t_node_line	*n;
+
+	n = (t_node_line *)node;
+	print_depth(depth);
+	my_printf("%s\n", "LINE");
+	node_print_depth(n->a, depth + 1);
 }
