@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   block.c                                            :+:      :+:    :+:   */
+/*   nop.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 01:02:37 by angsanch          #+#    #+#             */
-/*   Updated: 2025/08/09 15:10:42 by angsanch         ###   ########.fr       */
+/*   Created: 2025/08/04 22:09:33 by angsanch          #+#    #+#             */
+/*   Updated: 2025/08/07 00:31:20 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "node_print.h"
+#include "node_create.h"
+#include "basic.h"
 
-void	node_print_block(t_node *node, unsigned int depth)
+t_node	*node_create_nop(void)
 {
-	t_node_block	*n;
-	unsigned int	i;
+	t_node_nop	*n;
 
-	n = (t_node_block *)node;
-	i = 0;
-	while (i < n->amount)
-	{
-		node_print_depth((t_node *)&n->proc[i], depth + 1);
-		if (i + 1 < n->amount)
-		{
-			print_depth(depth);
-			my_printf("%s\n", "|");
-		}
-		i ++;
-	}
+	n = my_calloc(1, sizeof(t_node_nop));
+	if (n == NULL)
+		return (NULL);
+	return ((t_node *)n);
 }

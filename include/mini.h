@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 00:58:54 by angsanch          #+#    #+#             */
-/*   Updated: 2025/08/04 22:21:31 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/08/10 17:12:27 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define MINI_H
 
 # include <stdlib.h>
+
+struct s_pipe
+{
+	int	read;
+	int	write;
+};
 
 typedef struct command
 {

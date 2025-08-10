@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   block.c                                            :+:      :+:    :+:   */
+/*   and.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 01:02:37 by angsanch          #+#    #+#             */
-/*   Updated: 2025/08/09 15:10:42 by angsanch         ###   ########.fr       */
+/*   Created: 2025/08/04 23:34:02 by angsanch          #+#    #+#             */
+/*   Updated: 2025/08/06 03:14:50 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "node_print.h"
+#include "node_create.h"
+#include "basic.h"
 
-void	node_print_block(t_node *node, unsigned int depth)
+t_node	*node_create_and(t_node *a, t_node *b)
 {
-	t_node_block	*n;
-	unsigned int	i;
+	t_node_and	*n;
 
-	n = (t_node_block *)node;
-	i = 0;
-	while (i < n->amount)
-	{
-		node_print_depth((t_node *)&n->proc[i], depth + 1);
-		if (i + 1 < n->amount)
-		{
-			print_depth(depth);
-			my_printf("%s\n", "|");
-		}
-		i ++;
-	}
+	n = my_calloc(1, sizeof(t_node_and));
+	if (n == NULL)
+		return (NULL);
+	n->a = a;
+	n->b = b;
+	return ((t_node *)n);
 }
