@@ -19,6 +19,14 @@ C_FILES	= src/main.c \
 			src/node/create/proc.c \
 			src/node/create/line.c \
 			src/node/create/create.c \
+			src/node/destroy/nop.c \
+			src/node/destroy/and.c \
+			src/node/destroy/or.c \
+			src/node/destroy/semicolon.c \
+			src/node/destroy/block.c \
+			src/node/destroy/proc.c \
+			src/node/destroy/line.c \
+			src/node/destroy/destroy.c \
 
 libft/libft.a:
 	make -C libft
