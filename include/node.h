@@ -6,7 +6,7 @@
 /*   By: angsanch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 20:54:30 by angsanch          #+#    #+#             */
-/*   Updated: 2025/08/10 23:57:55 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/08/15 01:03:20 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef t_zero		t_node_nop;
 
 t_node	*node_create(enum e_node_type type, ...);
 void	node_print(t_node *node);
+int		node_exec(t_node *node);
 void	node_destroy(t_node *node);
 
 #endif

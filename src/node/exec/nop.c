@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mini.h                                             :+:      :+:    :+:   */
+/*   nop.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 00:58:54 by angsanch          #+#    #+#             */
-/*   Updated: 2025/08/17 01:05:26 by angsanch         ###   ########.fr       */
+/*   Created: 2025/08/04 22:09:33 by angsanch          #+#    #+#             */
+/*   Updated: 2025/09/23 20:32:00 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINI_H
-# define MINI_H
+#include "node_exec.h"
 
-# include <stdlib.h>
-
-struct s_pipe
+int	node_exec_nop(t_node __attribute__((unused))*node)
 {
-	int	read;
-	int	write;
-};
-
-#endif
+	return (0);
+}
