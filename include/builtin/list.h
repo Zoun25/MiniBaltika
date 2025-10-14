@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   line.c                                             :+:      :+:    :+:   */
+/*   list.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 04:12:16 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/14 23:43:42 by angsanch         ###   ########.fr       */
+/*   Created: 2025/10/13 18:05:48 by angsanch          #+#    #+#             */
+/*   Updated: 2025/10/13 18:11:42 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "input.h"
-#include "basic.h"
-#include "my_printf.h"
+#ifndef LIST_H
+# define LIST_H
 
-char	*mini_line(void)
+typedef enum builtin_id
 {
-	if (isatty(0))
-	{
-		my_printf("%s ", ">");
-		return (get_next_line(0));
-	}
-	else
-	{
-		return (get_next_line(0));
-	}
-}
+	NONE,
+	ECHO,
+	CD,
+	PWD,
+	EXPORT,
+	UNSET,
+	ENV,
+	EXIT,
+}	t_builtin_id;
+
+#endif // !LIST_H

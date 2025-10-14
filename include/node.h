@@ -6,7 +6,7 @@
 /*   By: angsanch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 20:54:30 by angsanch          #+#    #+#             */
-/*   Updated: 2025/08/15 01:03:20 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/13 18:28:02 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define NODE_H
 
 # include <stddef.h>
+
+# include "builtin/list.h"
 
 enum e_node_type
 {
@@ -48,9 +50,11 @@ typedef struct double_node
 
 typedef struct process_node
 {
-	t_node	type;
-	int		argc;
-	char	**argv;
+	t_node			type;
+	int				argc;
+	char			**argv;
+	char			*path;
+	t_builtin_id	builtin;
 }	t_node_proc;
 
 typedef struct block_node

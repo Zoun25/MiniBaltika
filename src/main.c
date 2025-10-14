@@ -6,22 +6,66 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 00:55:22 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/14 04:10:27 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/14 23:42:39 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini.h"
 #include "input.h"
-
+#include "basic.h"
+#include "my_printf.h"
 #include <stdio.h>
 
-int	main(void)
+static t_shinf	*shinf_create(char **env)
 {
-	char *line;
+	t_shinf	*sh;
 
-	while ((line = mini_line())) {
-		printf("%s", line);
-		free(line);
+	sh = my_calloc(1, sizeof(t_shinf));
+	if (sh == NULL)
+		return (NULL);
+	sh->env = env; //copy needed
+	return (sh);
+}
+
+static void	shinf_destroy(t_shinf *sh)
+{
+	if (sh == NULL)
+		return ;
+	free_string_array(sh->env);
+	free(sh);
+}
+
+void	end(t_shinf *sh)
+{
+	int	status;
+
+	status = sh->status_code;
+	shinf_destroy(sh);
+	exit(status);
+}
+
+void	loop(t_shinf *sh)
+{
+	char	*line;
+
+	while (true)
+	{
+		line = mini_line();
+		if (line == NULL)
+			break ;
+		my_printf("%s", line);
 	}
-	return (0);
+	end(sh);
+}
+
+int	main(int __attribute__((unused))argc, char __attribute__((unused))**argv,
+	char **env)
+{
+	t_shinf	*sh;
+
+	sh = shinf_create(env);
+	if (sh == NULL)
+		return (84);
+	loop(sh);
+	return (1);
 }
