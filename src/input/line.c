@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   line.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 00:55:22 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/14 04:10:27 by angsanch         ###   ########.fr       */
+/*   Created: 2025/10/14 04:12:16 by angsanch          #+#    #+#             */
+/*   Updated: 2025/10/14 04:16:37 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini.h"
 #include "input.h"
+#include "basic.h"
+#include "my_printf.h"
 
-#include <stdio.h>
-
-int	main(void)
+char	*mini_line(void)
 {
-	char *line;
-
-	while ((line = mini_line())) {
-		printf("%s", line);
-		free(line);
+	if (isatty(0))
+	{
+		my_printf("%s ", ">");
+		return (get_next_line(0));
+	} else {
+		return (get_next_line(0));
 	}
-	return (0);
 }

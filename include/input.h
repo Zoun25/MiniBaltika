@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   input.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 00:55:22 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/14 04:10:27 by angsanch         ###   ########.fr       */
+/*   Created: 2025/10/14 03:44:43 by angsanch          #+#    #+#             */
+/*   Updated: 2025/10/14 03:45:51 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mini.h"
-#include "input.h"
+#ifndef INPUT_H
+# define INPUT_H
 
-#include <stdio.h>
+char	*mini_line(void);
 
-int	main(void)
-{
-	char *line;
-
-	while ((line = mini_line())) {
-		printf("%s", line);
-		free(line);
-	}
-	return (0);
-}
+#endif
