@@ -6,19 +6,27 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 03:30:07 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/15 06:22:04 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/15 20:35:45 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
 #include "basic.h"
+#include "node_create.h"
 
 static t_node	*make_chunk(enum e_node_type type, t_node *a, t_node *b)
 {
 	t_node	*result;
 
-	result = node_create(type, a, b);
+	if (type == AND)
+		result = node_create_and(a, b);
+	else if (type == OR)
+		result = node_create_or(a, b);
+	else if (type == SEMICOLON)
+		result = node_create_semicolon(a, b);
+	else
+		result = NULL;
 	if (result == NULL || a == NULL || b == NULL)
 	{
 		node_destroy(result);
@@ -29,7 +37,7 @@ static t_node	*make_chunk(enum e_node_type type, t_node *a, t_node *b)
 	return (result);
 }
 
-static void	avoid_quotes(char *line, int *i, size_t begin, size_t end)
+void	avoid_quotes(char *line, int *i, size_t begin, size_t end)
 {
 	int		i_copy;
 	char	quote;
@@ -89,7 +97,7 @@ t_node	*parse_line(t_shinf *sh, char *line)
 	child = parse_chunks(sh, line, 0, len - (line[len - 1] == '\n'));
 	if (child == NULL)
 		return (NULL);
-	node = node_create(LINE, child);
+	node = node_create_line(child);
 	if (node == NULL)
 		node_destroy(child);
 	return (node);

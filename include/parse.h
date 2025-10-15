@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 23:54:00 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/15 06:25:16 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/15 16:16:43 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,8 @@
 int		apply_vars(t_shinf *sh, char **line);
 t_node	*parse_line(t_shinf *sh, char *line);
 t_node	*parse_block(t_shinf *sh, char *line, size_t begin, size_t end);
+t_node	*parse_proc(t_shinf *sh, char *line);
+
+void	avoid_quotes(char *line, int *i, size_t begin, size_t end);
 
 #endif // !PARSE_H

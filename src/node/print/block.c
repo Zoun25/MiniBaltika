@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 01:02:37 by angsanch          #+#    #+#             */
-/*   Updated: 2025/08/09 15:10:42 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/15 19:16:42 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	node_print_block(t_node *node, unsigned int depth)
 	i = 0;
 	while (i < n->amount)
 	{
-		node_print_depth((t_node *)&n->proc[i], depth + 1);
+		node_print_depth((t_node *)n->proc[i], depth + 1);
 		if (i + 1 < n->amount)
 		{
 			print_depth(depth);

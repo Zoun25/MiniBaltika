@@ -1,6 +1,6 @@
 CC		=gcc
 LIBS	=libft/libft.a
-CFLAGS	=-Wall -Werror -Wextra -Iinclude
+CFLAGS	=-Wall -Werror -Wextra -Iinclude -g
 NAME	=minishell
 C_FILES	= src/main.c \
 		  	src/shinf.c \
@@ -19,7 +19,6 @@ C_FILES	= src/main.c \
 			src/node/create/block.c \
 			src/node/create/proc.c \
 			src/node/create/line.c \
-			src/node/create/create.c \
 			src/node/destroy/nop.c \
 			src/node/destroy/and.c \
 			src/node/destroy/or.c \
@@ -40,6 +39,7 @@ C_FILES	= src/main.c \
 			src/parse/vars.c \
 			src/parse/line.c \
 			src/parse/block.c \
+			src/parse/proc.c \
 			src/env/operations.c \
 			src/env/utils.c \
 
