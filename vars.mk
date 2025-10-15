@@ -3,6 +3,7 @@ LIBS	=libft/libft.a
 CFLAGS	=-Wall -Werror -Wextra -Iinclude
 NAME	=minishell
 C_FILES	= src/main.c \
+		  	src/shinf.c \
 			src/node/print/nop.c \
 			src/node/print/and.c \
 			src/node/print/or.c \
@@ -39,6 +40,8 @@ C_FILES	= src/main.c \
 			src/parse/vars.c \
 			src/parse/line.c \
 			src/parse/block.c \
+			src/env/operations.c \
+			src/env/utils.c \
 
 libft/libft.a:
 	make -C libft

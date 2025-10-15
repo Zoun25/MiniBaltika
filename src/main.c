@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 00:55:22 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/15 03:39:51 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/15 13:11:09 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,11 @@
 #include "input.h"
 #include "parse.h"
 #include "node.h"
+#include "env.h"
 
 #include "basic.h"
 #include "my_printf.h"
 #include <stdio.h>
-
-static t_shinf	*shinf_create(char **env)
-{
-	t_shinf	*sh;
-
-	sh = my_calloc(1, sizeof(t_shinf));
-	if (sh == NULL)
-		return (NULL);
-	sh->env = env; //copy needed
-	return (sh);
-}
-
-static void	shinf_destroy(t_shinf *sh)
-{
-	if (sh == NULL)
-		return ;
-	free_string_array(sh->env);
-	free(sh);
-}
 
 void	end(t_shinf *sh)
 {
@@ -47,7 +29,7 @@ void	end(t_shinf *sh)
 	exit(status);
 }
 
-void	loop(t_shinf *sh)
+static void	loop(t_shinf *sh)
 {
 	char	*line;
 	t_node	*tree;
