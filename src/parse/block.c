@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destroy.c                                          :+:      :+:    :+:   */
+/*   block.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/02 22:56:02 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/15 06:27:41 by angsanch         ###   ########.fr       */
+/*   Created: 2025/10/15 06:23:57 by angsanch          #+#    #+#             */
+/*   Updated: 2025/10/15 06:25:09 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "node_destroy.h"
+#include "parse.h"
 
-void	node_destroy(t_node *node)
+t_node	*parse_block(t_shinf *sh, char *line, size_t begin, size_t end)
 {
-	static void	(*destroyer[])(t_node *) = {
-		&node_destroy_nop, &node_destroy_and, &node_destroy_or,
-		&node_destroy_semicolon, &node_destroy_block, &node_destroy_proc,
-		&node_destroy_line
-	};
-
-	if (node == NULL)
-		return ;
-	destroyer[node->type](node);
-	free(node);
+	(void)sh;
+	(void)line;
+	(void)begin;
+	(void)end;
+	return (NULL);
 }

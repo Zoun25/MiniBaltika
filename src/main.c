@@ -6,12 +6,15 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 00:55:22 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/14 23:42:39 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/15 03:39:51 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini.h"
 #include "input.h"
+#include "parse.h"
+#include "node.h"
+
 #include "basic.h"
 #include "my_printf.h"
 #include <stdio.h>
@@ -47,14 +50,28 @@ void	end(t_shinf *sh)
 void	loop(t_shinf *sh)
 {
 	char	*line;
+	t_node	*tree;
 
 	while (true)
 	{
 		line = mini_line();
 		if (line == NULL)
 			break ;
-		my_printf("%s", line);
+		if (!apply_vars(sh, &line))
+			break ;
+		tree = parse_line(sh, line);
+		if (tree == NULL)
+		{
+			sh->status_code = 1;
+			free(line);
+			continue ;
+		}
+		node_print(tree);
+		sh->status_code = node_exec(tree);
+		node_destroy(tree);
+		free(line);
 	}
+	free(line);
 	end(sh);
 }
 

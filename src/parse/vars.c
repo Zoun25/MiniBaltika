@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destroy.c                                          :+:      :+:    :+:   */
+/*   vars.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/02 22:56:02 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/15 06:27:41 by angsanch         ###   ########.fr       */
+/*   Created: 2025/10/15 01:30:35 by angsanch          #+#    #+#             */
+/*   Updated: 2025/10/15 01:32:00 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "node_destroy.h"
+#include "parse.h"
 
-void	node_destroy(t_node *node)
+int	apply_vars(t_shinf *sh, char **line)
 {
-	static void	(*destroyer[])(t_node *) = {
-		&node_destroy_nop, &node_destroy_and, &node_destroy_or,
-		&node_destroy_semicolon, &node_destroy_block, &node_destroy_proc,
-		&node_destroy_line
-	};
-
-	if (node == NULL)
-		return ;
-	destroyer[node->type](node);
-	free(node);
+	(void)sh;
+	(void)line;
+	return (1);
 }

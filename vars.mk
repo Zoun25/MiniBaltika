@@ -36,6 +36,9 @@ C_FILES	= src/main.c \
 			src/node/exec/line.c \
 			src/node/exec/exec.c \
 			src/input/line.c \
+			src/parse/vars.c \
+			src/parse/line.c \
+			src/parse/block.c \
 
 libft/libft.a:
 	make -C libft
