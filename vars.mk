@@ -1,7 +1,8 @@
 CC		=gcc
 LIBS	=libft/libft.a
-CFLAGS	=-Wall -Werror -Wextra -Iinclude -g
+CFLAGS	=-Wall -Werror -Wextra -Iinclude
 NAME	=minishell
+LINKS	=-lreadline
 C_FILES	= src/main.c \
 		  	src/shinf.c \
 			src/node/print/nop.c \
