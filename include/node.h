@@ -6,7 +6,7 @@
 /*   By: angsanch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 20:54:30 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/17 03:29:57 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/17 04:40:54 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct process_node
 	char			*path;
 	t_builtin_id	builtin;
 	struct s_pipe	fds;
+	t_executable	exec;						
 }	t_node_proc;
 
 typedef struct block_node

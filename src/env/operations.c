@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 12:14:31 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/15 12:57:59 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/17 05:02:17 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,20 +57,26 @@ int	set_env_var(t_shinf *s, char *name, char *value)
 {
 	t_env_var	*temp;
 	ssize_t		index;
+	int			status;
 
 	index = get_env_index(s, name);
 	if (!check_variable_name(name))
 		return (0);
-	if (!value)
-		value = "";
 	temp = env_var_from_parts(name, value);
 	if (temp == NULL)
 		return (0);
+	if (my_strcmp(temp->name, "PATH") == 0)
+		if (!update_path(s, temp->value))
+			return (destroy_env_var(temp), 0);
 	if (index < 0)
-		return (list_append(&s->list_env, temp));
+		status = list_append(&s->list_env, temp);
 	else
 	{
 		list_pop(&s->list_env, index);
-		return (list_insert(&s->list_env, index, temp));
+		status = list_insert(&s->list_env, index, temp);
 	}
+	if (status)
+		return (1);
+	destroy_env_var(temp);
+	return (0);
 }

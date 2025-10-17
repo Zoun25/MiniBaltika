@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 02:16:25 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/17 04:27:25 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/17 05:33:46 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ void	node_print_proc(t_node *node, unsigned int depth)
 	n = (t_node_proc *)node;
 	i = 0;
 	print_depth(depth);
-	my_printf("%2d %2d %2d:", n->fds.read, n->fds.write, n->argc);
+	my_printf("%s %d %2d %2d %2d: ", n->exec.bin, n->exec.builtin,
+		n->fds.read, n->fds.write, n->argc);
 	while (i < n->argc)
 	{
-		my_printf("%s", n->argv[i]);
+		my_printf("-%s-", n->argv[i]);
 		i ++;
 	}
 	my_printf("\n");

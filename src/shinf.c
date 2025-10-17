@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 13:10:28 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/15 13:25:48 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/17 05:29:53 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,11 @@ t_shinf	*shinf_create(char **env)
 	{
 		var = create_env_var(env[i]);
 		if (var == NULL)
-		{
-			shinf_destroy(sh);
-			return (NULL);
-		}
+			return (shinf_destroy(sh), NULL);
 		if (!list_append(&sh->list_env, var))
 			destroy_env_var(var);
+		if (my_strcmp(var->name, "PATH") == 0)
+			update_path(sh, var->value);
 		i ++;
 	}
 	sh->env = (char **)list_export(&sh->list_env,
@@ -49,5 +48,6 @@ void	shinf_destroy(t_shinf *sh)
 		return ;
 	list_delete(&sh->list_env);
 	free_string_array(sh->env);
+	free_string_array(sh->path.path);
 	free(sh);
 }

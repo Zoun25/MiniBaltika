@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 03:44:43 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/17 03:38:11 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/17 05:32:39 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,12 @@ typedef enum redirections
 	OUTPUT = 0b001,
 }	t_redir;
 
-char	*mini_line(bool print);
+char			*mini_line(bool print);
 
-int		open_redir(t_redir redir, char *arg);
+int				open_redir(t_redir redir, char *arg);
 
-void	close_pipe(struct s_pipe *pipe);
+void			close_pipe(struct s_pipe *pipe);
+
+t_executable	get_executable(t_shinf *sh, char *command);
 
 #endif

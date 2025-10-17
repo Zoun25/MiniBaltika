@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 12:10:31 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/15 12:56:50 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/17 05:05:16 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ t_env_var	*env_var_from_parts(char *name, char *value)
 {
 	t_env_var	*result;
 
+	if (!value)
+		value = "";
 	result = my_calloc(sizeof(t_env_var), 1);
 	if (result == NULL)
 		return (NULL);
@@ -79,5 +81,11 @@ int	remove_env_var(t_shinf *s, char *name)
 	index = get_env_index(s, name);
 	if (index < 0)
 		return (0);
+	if (my_strcmp(name, "PATH"))
+	{
+		free_string_array(s->path.path);
+		s->path.path = NULL;
+		s->path.longest = 0;
+	}
 	return (list_pop(&s->list_env, index));
 }

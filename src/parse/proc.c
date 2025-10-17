@@ -6,13 +6,14 @@
 /*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 16:14:17 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/17 04:27:25 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/17 05:33:12 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 #include "input.h"
 #include "node/create.h"
+#include "env.h"
 
 #include "basic.h"
 
@@ -93,7 +94,8 @@ t_node	*parse_proc(t_shinf *sh, char *line)
 		curate_arg(sh, &splited[i]);
 		i ++;
 	}
-	proc = node_create_proc(get_pointer_array_len(splited), splited, redirs);
+	proc = node_create_proc(get_pointer_array_len(splited), splited, redirs,
+			get_executable(sh, splited[0]));
 	if (proc == NULL)
 		free_string_array(splited);
 	return (proc);

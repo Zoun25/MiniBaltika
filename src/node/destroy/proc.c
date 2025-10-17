@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 02:16:25 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/17 04:27:25 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/17 05:20:11 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ void	node_destroy_proc(t_node *node)
 
 	n = (t_node_proc *)node;
 	free_string_array(n->argv);
+	free(n->exec.bin);
 	close_pipe(&n->fds);
 }

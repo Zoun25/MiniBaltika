@@ -39,12 +39,14 @@ C_FILES	= src/main.c \
 			src/input/line.c \
 			src/input/redir.c \
 			src/input/utils.c \
+			src/input/pather.c \
 			src/parse/vars.c \
 			src/parse/line.c \
 			src/parse/block.c \
 			src/parse/proc.c \
 			src/env/operations.c \
 			src/env/utils.c \
+			src/env/path.c \
 
 libft/libft.a:
 	make -C libft

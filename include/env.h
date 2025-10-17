@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 11:58:20 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/15 12:57:45 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/17 05:31:51 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef struct environment_variable
 	char	*value;
 	size_t	total_len;
 }	t_env_var;
+
+int			update_path(t_shinf *sh, char *path);
 
 t_env_var	*create_env_var(char *raw);
 char		*assemble_env_var(t_env_var *v);
