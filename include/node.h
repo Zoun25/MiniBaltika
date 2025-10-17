@@ -6,7 +6,7 @@
 /*   By: angsanch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 20:54:30 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/15 20:23:01 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/17 03:29:57 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stddef.h>
 
 # include "builtin/list.h"
+# include "mini.h"
 
 enum e_node_type
 {
@@ -55,6 +56,7 @@ typedef struct process_node
 	char			**argv;
 	char			*path;
 	t_builtin_id	builtin;
+	struct s_pipe	fds;
 }	t_node_proc;
 
 typedef struct block_node

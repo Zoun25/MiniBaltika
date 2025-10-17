@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 03:30:07 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/15 20:35:45 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/17 02:54:39 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ t_node	*parse_line(t_shinf *sh, char *line)
 	t_node	*child;
 
 	len = my_strlen(line);
+	if (len == 0)
+		return (node_create_nop());
 	child = parse_chunks(sh, line, 0, len - (line[len - 1] == '\n'));
 	if (child == NULL)
 		return (NULL);

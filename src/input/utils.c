@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input.h                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 03:44:43 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/17 03:38:11 by angsanch         ###   ########.fr       */
+/*   Created: 2025/10/17 02:30:59 by angsanch          #+#    #+#             */
+/*   Updated: 2025/10/17 03:13:34 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INPUT_H
-# define INPUT_H
+#include "input.h"
 
-# include "mini.h"
-
-# include <stdbool.h>
-
-typedef enum redirections
+void	close_pipe(struct s_pipe *pipe)
 {
-	NON = 0b000,
-	SINGLE_INPUT = 0b100,
-	DUAL_INPUT = 0b110,
-	SINGLE_OUTPUT = 0b101,
-	DUAL_OUTPUT = 0b111,
-	DUAL = 0b010,
-	OUTPUT = 0b001,
-}	t_redir;
-
-char	*mini_line(bool print);
-
-int		open_redir(t_redir redir, char *arg);
-
-void	close_pipe(struct s_pipe *pipe);
-
-#endif
+	if (pipe->read >= 0)
+		close(pipe->read);
+	if (pipe->write >= 0)
+		close(pipe->write);
+}

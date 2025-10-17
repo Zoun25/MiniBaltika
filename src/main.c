@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 00:55:22 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/15 20:48:44 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/17 03:38:27 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	end(t_shinf *sh)
 
 	status = sh->status_code;
 	shinf_destroy(sh);
+	gnl_flush();
 	exit(status);
 }
 
@@ -36,7 +37,7 @@ static void	loop(t_shinf *sh)
 
 	while (true)
 	{
-		line = mini_line();
+		line = mini_line(true);
 		if (line == NULL)
 			break ;
 		if (!apply_vars(sh, &line))
