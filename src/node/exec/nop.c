@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   nop.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 22:09:33 by angsanch          #+#    #+#             */
-/*   Updated: 2025/09/23 20:32:00 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/17 04:27:25 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "node_exec.h"
+#include "node/exec.h"
 
 int	node_exec_nop(t_node __attribute__((unused))*node)
 {

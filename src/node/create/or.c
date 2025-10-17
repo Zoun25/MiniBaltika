@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   or.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 00:13:30 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/15 20:46:53 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/17 04:27:25 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "node_create.h"
+#include "node/create.h"
 #include "basic.h"
 
 t_node	*node_create_or(t_node *a, t_node *b)

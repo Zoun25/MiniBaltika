@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   block.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 06:23:57 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/15 20:50:58 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/17 04:27:25 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "basic.h"
 
 #include "parse.h"
-#include "node_create.h"
+#include "node/create.h"
 
 static void	move_buff(size_t size, char *buff, bool movement)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   and.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 23:34:02 by angsanch          #+#    #+#             */
-/*   Updated: 2025/08/05 02:27:11 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/17 04:27:25 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "node_print.h"
+#include "node/print.h"
 
 void	node_print_and(t_node *node, unsigned int depth)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   semicolon.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 00:14:09 by angsanch          #+#    #+#             */
-/*   Updated: 2025/08/16 23:55:31 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/17 04:27:25 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "node_print.h"
+#include "node/print.h"
 
 int	node_exec_semicolon(t_node *node)
 {

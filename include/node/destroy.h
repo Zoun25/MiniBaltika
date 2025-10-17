@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   node_destroy.h                                     :+:      :+:    :+:   */
+/*   destroy.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 22:39:41 by angsanch          #+#    #+#             */
-/*   Updated: 2025/08/06 03:40:21 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/17 05:16:31 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef NODE_DESTROY_H
-# define NODE_DESTROY_H
+#ifndef DESTROY_H
+# define DESTROY_H
 
 # include "node.h"
 # include <stdlib.h>
