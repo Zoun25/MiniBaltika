@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 01:30:35 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/15 01:32:00 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/18 20:17:03 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ static bool	ft_is_dollar(char *line)
 	}
 	return (0);
 }
-
-
 
 static char	*ft_globbercat(char *dest, char *var, int *i, t_shinf *sh)
 {

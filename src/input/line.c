@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 04:12:16 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/17 03:38:48 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/18 20:15:42 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ char	*mini_line(bool print)
 	{
 		signal(SIGINT, ft_sigint);
 		signal(SIGQUIT, SIG_IGN);
-		signal(SIGTSTP, SIG_IGN);
 		line = readline(promt);
 		if (line)
 		{

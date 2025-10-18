@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 02:16:25 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/18 04:30:54 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/18 19:14:30 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	node_exec_proc(t_shinf *sh, t_node *node)
 	char		status;
 
 	n = (t_node_proc *)node;
+	child_signals();
 	if (read(((t_node_block *)sh->block)->status.read, &status, 1) < 1)
 		exit(84);
 	if (status == 'f')

@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 03:44:43 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/18 10:38:27 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/18 20:17:23 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ typedef enum redirections
 	DUAL = 0b010,
 	OUTPUT = 0b001,
 }	t_redir;
+
+void			executor_signals(void);
+void			child_signals(void);
 
 char			*mini_line(bool print);
 int				open_redir(t_redir redir, char *arg);

@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 01:02:37 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/18 10:38:49 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/18 19:34:31 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ int	node_exec_block(t_shinf *sh, t_node *node)
 	if (!create_pipes(n))
 		return (1);
 	sh->block = node;
+	executor_signals();
 	if (!fork_proccesses(sh, n))
 		return (1);
 	manage_children(sh, n);
