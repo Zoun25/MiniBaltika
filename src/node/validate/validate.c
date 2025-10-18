@@ -23,6 +23,6 @@ bool	node_validate(t_node *node)
 	};
 
 	if (node == NULL)
-		return (my_dprintf(2, "%s\n", "node is null"), false);
+		return (my_dprintf(2, "Error 14: %s\n", "Bad address"), false);
 	return (validator[node->type](node));
 }

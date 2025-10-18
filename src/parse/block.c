@@ -98,12 +98,12 @@ t_node	*parse_block(t_shinf *sh, char *line, size_t begin, size_t end)
 	pipes = count_pipes(line, begin, end);
 	procs = create_procs(sh, line, begin, end);
 	if (procs == NULL)
-		return (NULL);
+		return (my_dprintf(2, "Error 12: Failed to malloc"), NULL);
 	block = node_create_block((unsigned int)pipes + 1, (t_node_proc **)procs);
 	if (block == NULL)
 	{
 		destroy_procs(procs);
-		return (NULL);
+		return (my_dprintf(2, "Error 12: Failed to malloc"), NULL);
 	}
 	return (block);
 }

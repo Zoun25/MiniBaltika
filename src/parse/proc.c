@@ -89,7 +89,8 @@ t_node	*parse_proc(t_shinf *sh, char *line)
 	if (get_pointer_array_len((void *)splited) == 0)
 		return (node_create_nop());
 	if (!parse_redir(sh, splited, &redirs))
-		return (free_string_array(splited), NULL);
+		return (my_dprintf(2, "syntax error: unexpected token >")
+			, free_string_array(splited), NULL);
 	i = 0;
 	while (splited[i])
 	{

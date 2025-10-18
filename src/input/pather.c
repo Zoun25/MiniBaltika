@@ -13,6 +13,7 @@
 #include "mini.h"
 
 #include "basic.h"
+#include "my_printf.h"
 
 static char	*get_path(t_path *path, char *name)
 {
@@ -37,6 +38,7 @@ static char	*get_path(t_path *path, char *name)
 			return (result);
 		i ++;
 	}
+	my_dprintf(2, "Error 127: command not found: %s\n", result);
 	free(result);
 	return (NULL);
 }

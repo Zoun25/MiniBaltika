@@ -100,7 +100,7 @@ static char	*ft_globber(char *line, int *i, t_shinf *sh)
 
 	aux = my_strdup("");
 	if (!aux)
-		return (NULL);
+		return (my_dprintf(2, "Error 12: Failed to malloc\n"), NULL);
 	while (line[*i])
 	{
 		if (line[*i] == '$' && line[*i] == '?' && !ft_is_sq(line, *i))
@@ -108,12 +108,15 @@ static char	*ft_globber(char *line, int *i, t_shinf *sh)
 		else if (line[*i] == '$' && !ft_is_sq(line, *i))
 			dest = ft_globbercat(aux, ft_get_glob(line + *i, i), i, sh);
 		if (!dest)
-			return (free(aux), NULL);
+			return (my_dprintf(2, "Error 12: Failed to malloc\n"), free(aux)
+				, NULL);
 		free(aux);
 		aux = my_strjoin(dest, &line[*i]);
 		free(dest);
 		dest = NULL;
 	}
+	if (!aux)
+		my_dprintf(2, "Error: Couldn't find the env var\n");
 	return (aux);
 }
 

@@ -27,14 +27,16 @@ bool	node_validate_block(t_node *node)
 	while (i < n->amount)
 	{
 		if (n->proc[i] == NULL)
-			return (my_dprintf(2, "%s: %s\n", "bad mem", strerror(errno)), 0);
+			return (my_dprintf(2, "%s %s: %s\n", "Error"
+					, strerror(errno)), "Failed to malloc", 0);
 		if (n->proc[i]->type.type != PROC)
-			return (my_dprintf(2, "%s\n", "Non proc inside block"), false);
+			return (my_dprintf(2, "%s 10: %s\n", "Error",
+					"Exec format error"), false);
 		if (!node_validate((t_node *)n->proc[i]))
 			return (false);
 		i ++;
 	}
 	if (n->amount == 0)
-		return (my_dprintf(2, "%s\n", "Block is empty"), false);
+		return (my_dprintf(2, "Error 9: Bad address\n"), false);
 	return (true);
 }
