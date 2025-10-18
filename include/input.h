@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 03:44:43 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/17 05:32:39 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/18 02:27:44 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define INPUT_H
 
 # include "mini.h"
+# include "node.h"
 
 # include <stdbool.h>
 
@@ -29,11 +30,9 @@ typedef enum redirections
 }	t_redir;
 
 char			*mini_line(bool print);
-
 int				open_redir(t_redir redir, char *arg);
-
 void			close_pipe(struct s_pipe *pipe);
-
 t_executable	get_executable(t_shinf *sh, char *command);
+void			manage_children(t_node_block *block);
 
 #endif

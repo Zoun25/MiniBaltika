@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 16:14:17 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/17 05:33:12 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/18 02:32:12 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ t_node	*parse_proc(t_shinf *sh, char *line)
 	splited = my_coolersplit(line, " \t");
 	if (splited == NULL)
 		return (NULL);
+	if (get_pointer_array_len((void *)splited) == 0)
+		return (node_create_nop());
 	if (!parse_redir(sh, splited, &redirs))
 		return (free_string_array(splited), NULL);
 	i = 0;

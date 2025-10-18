@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 00:58:54 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/17 04:47:39 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/18 01:22:47 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 # include "builtin/list.h"
 
+typedef struct node	t_node;
+
 typedef struct path
 {
 	char	**path;
@@ -27,9 +29,11 @@ typedef struct path
 typedef struct shell_information
 {
 	t_list	list_env;
-	char	**env;	
+	char	**env;
 	int		status_code;
 	t_path	path;
+	t_node	*line;
+	t_node	*block;
 }	t_shinf;
 
 struct s_pipe

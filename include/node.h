@@ -6,7 +6,7 @@
 /*   By: angsanch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 20:54:30 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/17 04:40:54 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/18 02:13:00 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,22 @@ typedef struct process_node
 	char			*path;
 	t_builtin_id	builtin;
 	struct s_pipe	fds;
-	t_executable	exec;						
+	t_executable	exec;
+	int				pid;
+	size_t			id;
+	int				exit_status;
 }	t_node_proc;
 
 typedef struct block_node
 {
-	t_node		type;
-	int			ifd;
-	int			ofd;
-	size_t		amount;
-	t_node_proc	**proc;
+	t_node			type;
+	int				ifd;
+	int				ofd;
+	size_t			amount;
+	t_node_proc		**proc;
+	size_t			active;
+	struct s_pipe	*pipes;
+	struct s_pipe	status;
 }	t_node_block;
 
 typedef t_double	t_node_and;
@@ -76,7 +82,7 @@ typedef t_simple	t_node_line;
 typedef t_zero		t_node_nop;
 
 void	node_print(t_node *node);
-int		node_exec(t_node *node);
+int		node_exec(t_shinf *sh, t_node *node);
 void	node_destroy(t_node *node);
 
 #endif

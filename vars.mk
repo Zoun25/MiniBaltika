@@ -40,6 +40,7 @@ C_FILES	= src/main.c \
 			src/input/redir.c \
 			src/input/utils.c \
 			src/input/pather.c \
+			src/input/parent.c \
 			src/parse/vars.c \
 			src/parse/line.c \
 			src/parse/block.c \

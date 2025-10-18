@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 00:55:22 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/17 03:38:27 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/18 00:57:05 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	loop(t_shinf *sh)
 			continue ;
 		}
 		node_print(tree);
-		// sh->status_code = node_exec(tree);
+		sh->status_code = node_exec(sh, tree);
 		node_destroy(tree);
 		free(line);
 	}

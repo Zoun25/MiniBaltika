@@ -6,14 +6,15 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 13:10:28 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/17 05:29:53 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/17 23:56:25 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini.h"
+#include "node.h"
+#include "env.h"
 
 #include "basic.h"
-#include "env.h"
 
 t_shinf	*shinf_create(char **env)
 {
@@ -49,5 +50,6 @@ void	shinf_destroy(t_shinf *sh)
 	list_delete(&sh->list_env);
 	free_string_array(sh->env);
 	free_string_array(sh->path.path);
+	node_destroy(sh->line);
 	free(sh);
 }
