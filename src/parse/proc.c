@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 16:14:17 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/18 02:32:12 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/18 20:59:37 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,36 @@
 #include "env.h"
 
 #include "basic.h"
+#include "my_printf.h"
+
+static char	*remove_quotes(char *line, int pos)
+{
+	int		p2;
+	char	*new;
+
+	while (line[pos])
+	{
+		if (line[pos] == '\'' || line[pos] == '"')
+			break ;
+		pos ++;
+	}
+	if (line[pos] != '\'' && line[pos] != '"')
+		return (line);
+	p2 = pos;
+	avoid_quotes(line, &p2, 0, my_strlen(line));
+	p2 --;
+	my_sbufferf(&new, "%.*s%.*s%s", pos, line, p2 - pos - 1, &line[pos + 1],
+		&line[p2 + 1]);
+	if (new == NULL)
+		return (line);
+	free(line);
+	return (remove_quotes(new, p2 - 1));
+}
 
 static void	curate_arg(t_shinf *sh, char **arg)
 {
-	size_t	len;
-	char	ends[2];
-
-	len = my_strlen(*arg);
-	ends[0] = (*arg)[0];
-	ends[1] = (*arg)[len - 1];
-	if ((ends[0] == '\'' || ends[0] == '"') && ends[0] == ends[1])
-	{
-		my_memmove(*arg, &(*arg)[1], len - 2);
-		(*arg)[len - 2] = '\0';
-	}
-	if (ends[0] != '\'' && ends[1] != '\'')
-		apply_vars(sh, arg);
+	apply_vars(sh, arg);
+	*arg = remove_quotes(*arg, 0);
 }
 
 static t_redir	get_redir_type(char *arg)
