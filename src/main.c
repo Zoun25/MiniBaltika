@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 00:55:22 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/18 00:57:05 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/18 14:37:51 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,8 @@ static void	loop(t_shinf *sh)
 		line = mini_line(true);
 		if (line == NULL)
 			break ;
-		if (!apply_vars(sh, &line))
-			break ;
 		tree = parse_line(sh, line);
-		if (tree == NULL)
+		if (!node_validate(tree))
 		{
 			sh->status_code = 1;
 			free(line);
@@ -54,7 +52,6 @@ static void	loop(t_shinf *sh)
 		node_destroy(tree);
 		free(line);
 	}
-	free(line);
 	end(sh);
 }
 

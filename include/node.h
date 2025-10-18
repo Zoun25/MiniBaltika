@@ -6,7 +6,7 @@
 /*   By: angsanch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 20:54:30 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/18 10:09:33 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/18 14:07:14 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 # include "builtin/list.h"
 # include "mini.h"
+
+# include <stdbool.h>
 
 enum e_node_type
 {
@@ -54,7 +56,6 @@ typedef struct process_node
 	t_node			type;
 	int				argc;
 	char			**argv;
-	char			*path;
 	struct s_pipe	fds;
 	t_executable	exec;
 	int				pid;
@@ -65,8 +66,6 @@ typedef struct process_node
 typedef struct block_node
 {
 	t_node			type;
-	int				ifd;
-	int				ofd;
 	size_t			amount;
 	t_node_proc		**proc;
 	size_t			active;
@@ -81,6 +80,7 @@ typedef t_simple	t_node_line;
 typedef t_zero		t_node_nop;
 
 void	node_print(t_node *node);
+bool	node_validate(t_node *node);
 int		node_exec(t_shinf *sh, t_node *node);
 void	node_destroy(t_node *node);
 

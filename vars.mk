@@ -36,6 +36,14 @@ C_FILES	= src/main.c \
 			src/node/exec/proc.c \
 			src/node/exec/line.c \
 			src/node/exec/exec.c \
+			src/node/validate/nop.c \
+			src/node/validate/and.c \
+			src/node/validate/or.c \
+			src/node/validate/semicolon.c \
+			src/node/validate/block.c \
+			src/node/validate/proc.c \
+			src/node/validate/line.c \
+			src/node/validate/validate.c \
 			src/input/line.c \
 			src/input/redir.c \
 			src/input/utils.c \
