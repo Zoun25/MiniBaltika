@@ -17,6 +17,8 @@
 # include "node.h"
 
 int		apply_vars(t_shinf *sh, char **line);
+bool	ft_is_sq(char *line, int pos);
+
 t_node	*parse_line(t_shinf *sh, char *line);
 t_node	*parse_block(t_shinf *sh, char *line, size_t begin, size_t end);
 t_node	*parse_proc(t_shinf *sh, char *line);

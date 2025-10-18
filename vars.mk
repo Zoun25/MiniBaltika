@@ -1,6 +1,6 @@
 CC		=gcc
 LIBS	=libft/libft.a
-CFLAGS	=-Wall -Werror -Wextra -Iinclude
+CFLAGS	=-Wall -Werror -Wextra -Iinclude -g
 NAME	=minishell
 LINKS	=-lreadline
 C_FILES	= src/main.c \
@@ -50,6 +50,7 @@ C_FILES	= src/main.c \
 			src/input/pather.c \
 			src/input/parent.c \
 			src/parse/vars.c \
+			src/parse/vars_utils.c \
 			src/parse/line.c \
 			src/parse/block.c \
 			src/parse/proc.c \
