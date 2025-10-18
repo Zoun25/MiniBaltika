@@ -1,6 +1,6 @@
 CC		=gcc
 LIBS	=libft/libft.a
-CFLAGS	=-Wall -Werror -Wextra -Iinclude -g
+CFLAGS	=-Wall -Werror -Wextra -Iinclude
 NAME	=minishell
 LINKS	=-lreadline
 C_FILES	= src/main.c \
@@ -48,6 +48,14 @@ C_FILES	= src/main.c \
 			src/env/operations.c \
 			src/env/utils.c \
 			src/env/path.c \
+			src/builtin/pwd.c \
+			src/builtin/echo.c \
+			src/builtin/export.c \
+			src/builtin/exit.c \
+			src/builtin/unset.c \
+			src/builtin/env.c \
+			src/builtin/builtin.c \
+			src/builtin/cd.c \
 
 libft/libft.a:
 	make -C libft

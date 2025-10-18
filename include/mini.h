@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 00:58:54 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/18 01:22:47 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/18 09:38:27 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 
 # include "builtin/list.h"
 
+# ifndef MAX_PATH_LEN
+#  define MAX_PATH_LEN 128
+# endif
+
 typedef struct node	t_node;
 
 typedef struct path
@@ -28,6 +32,7 @@ typedef struct path
 
 typedef struct shell_information
 {
+	char	work_dir[MAX_PATH_LEN + 1];
 	t_list	list_env;
 	char	**env;
 	int		status_code;

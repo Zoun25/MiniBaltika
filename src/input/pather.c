@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 04:34:17 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/17 05:30:52 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/18 11:18:22 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static char	*get_path(t_path *path, char *name)
 	char	*result;
 	size_t	i;
 
+	if (path->path == NULL)
+		return (NULL);
 	if (my_strchr_count(name, '/') > 0)
 		return (my_strdup(name));
 	result = malloc((path->longest + my_strlen(name) + 2) * sizeof(char));

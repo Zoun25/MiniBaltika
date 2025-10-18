@@ -6,7 +6,7 @@
 /*   By: angsanch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 20:54:30 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/18 02:13:00 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/18 10:09:33 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ typedef struct process_node
 	int				argc;
 	char			**argv;
 	char			*path;
-	t_builtin_id	builtin;
 	struct s_pipe	fds;
 	t_executable	exec;
 	int				pid;

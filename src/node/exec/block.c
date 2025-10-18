@@ -6,11 +6,12 @@
 /*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 01:02:37 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/18 04:21:12 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/18 10:38:49 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "node/exec.h"
+#include "builtin/funcs.h"
 #include "input.h"
 
 #include "my_printf.h"
@@ -23,7 +24,7 @@ static size_t	forking(t_shinf *sh, t_node_block *n)
 	i = 0;
 	while (i < n->amount)
 	{
-		if (n->proc[i]->builtin != NONE)
+		if (n->proc[i]->exec.builtin != NONE)
 		{
 			i ++;
 			continue ;
@@ -89,7 +90,7 @@ int	node_exec_block(t_shinf *sh, t_node *node)
 	sh->block = node;
 	if (!fork_proccesses(sh, n))
 		return (1);
-	manage_children(n);
+	manage_children(sh, n);
 	sh->block = NULL;
 	return (n->proc[n->amount - 1]->exit_status);
 }

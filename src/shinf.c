@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 13:10:28 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/17 23:56:25 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/18 10:11:52 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ t_shinf	*shinf_create(char **env)
 	}
 	sh->env = (char **)list_export(&sh->list_env,
 			(void *(*)(void *)) & assemble_env_var);
+	getcwd(sh->work_dir, MAX_PATH_LEN);
 	return (sh);
 }
 
