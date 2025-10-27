@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 06:23:57 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/27 05:48:58 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/27 05:59:44 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,17 @@ static void	move_buff(size_t size, char *buff, bool movement)
 {
 	char	*pipe;
 	size_t	len;
+	int		i;
 
-	pipe = my_strchr(buff, '|');
+	i = 0;
+	while (buff[i])
+	{
+		avoid_quotes(buff, &i, 0, -1);
+		if (buff[i] == '|')
+			break ;
+		i ++;
+	}
+	pipe = &buff[i];
 	if (pipe)
 		pipe[0] = '\0';
 	if (!movement)
