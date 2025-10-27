@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 06:23:57 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/18 20:32:51 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/27 05:48:58 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,16 +95,21 @@ t_node	*parse_block(t_shinf *sh, char *line, size_t begin, size_t end)
 	unsigned int	pipes;
 	t_node			*block;
 	t_node			**procs;
+	unsigned int	i;
 
 	pipes = count_pipes(line, begin, end);
 	procs = create_procs(sh, line, begin, end);
 	if (procs == NULL)
-		return (my_dprintf(2, "Error 12: Failed to malloc"), NULL);
+		return (NULL);
+	i = 0;
+	while (i < pipes + 1)
+	{
+		if (procs[i]->type == NOP)
+			return (destroy_procs(procs), node_create_nop());
+		i ++;
+	}
 	block = node_create_block((unsigned int)pipes + 1, (t_node_proc **)procs);
 	if (block == NULL)
-	{
-		destroy_procs(procs);
-		return (my_dprintf(2, "Error 12: Failed to malloc"), NULL);
-	}
+		return (destroy_procs(procs), NULL);
 	return (block);
 }

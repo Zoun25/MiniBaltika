@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 22:56:02 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/18 14:42:27 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/27 05:20:41 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ bool	node_validate(t_node *node)
 	};
 
 	if (node == NULL)
-		return (my_dprintf(2, "Error 14: %s\n", "Bad address"), false);
+		return (false);
 	return (validator[node->type](node));
 }

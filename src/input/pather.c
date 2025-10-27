@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 04:34:17 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/18 11:18:22 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/27 05:25:02 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ static char	*get_path(t_path *path, char *name)
 			return (result);
 		i ++;
 	}
-	my_dprintf(2, "Error 127: command not found: %s\n", result);
 	free(result);
 	return (NULL);
 }

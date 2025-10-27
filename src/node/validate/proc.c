@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 02:16:25 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/18 14:32:59 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/27 05:27:37 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ bool	node_validate_proc(t_node *node)
 
 	n = (t_node_proc *)node;
 	if (get_pointer_array_len(n->argv) != (size_t)n->argc)
-		return (my_dprintf(2, "Error 22: %s\n",
-				"Invalid argument"), false);
+		return (my_dprintf(2, "Unexpected argument amount\n"), false);
 	if (n->exec.bin && n->exec.builtin)
-		return (my_dprintf(2, "Error 53: %s \n",
-				"Invalid request descriptor"), false);
+		return (my_dprintf(2, "Cannot be bin and builtin\n"), false);
+	if (n->exec.bin == NULL && n->exec.builtin == NONE)
+		return (my_dprintf(2, "Command not found: %s\n", n->argv[0]), false);
 	return (true);
 }
