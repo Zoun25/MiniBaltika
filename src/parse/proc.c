@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 16:14:17 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/27 05:13:31 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/27 23:24:09 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 static char	*remove_quotes(char *line, int pos)
 {
 	int		p2;
-	char	*new;
 
 	while (line[pos])
 	{
@@ -34,12 +33,11 @@ static char	*remove_quotes(char *line, int pos)
 	p2 = pos;
 	avoid_quotes(line, &p2, 0, my_strlen(line));
 	p2 --;
-	my_sbufferf(&new, "%.*s%.*s%s", pos, line, p2 - pos - 1, &line[pos + 1],
-		&line[p2 + 1]);
-	if (new == NULL)
-		return (line);
-	free(line);
-	return (remove_quotes(new, p2 - 1));
+	my_memmove(&line[pos], &line[pos + 1], p2 - pos - 1);
+	my_memmove(&line[p2 - 1], &line[p2 + 1], my_strlen(&line[p2 + 1]));
+	line[my_strlen(line) - 2] = '\0';
+	my_printf("%s\n", line);
+	return (remove_quotes(line, p2 - 1));
 }
 
 static void	curate_arg(t_shinf *sh, char **arg)

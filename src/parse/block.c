@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 06:23:57 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/27 05:59:44 by angsanch         ###   ########.fr       */
+/*   Updated: 2025/10/27 20:03:58 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,10 @@ static t_node	**create_procs(t_shinf *sh, char *line, size_t begin,
 
 	i = 0;
 	pipes = count_pipes(line, begin, end);
-	buff = malloc(sizeof(char) * (end - begin + 1));
+	buff = malloc(sizeof(char) * (end - begin + 2));
 	if (buff == NULL)
 		return (NULL);
-	my_memcpy(buff, &line[begin], end - begin);
+	my_memcpy(buff, &line[begin], end - begin + 2);
 	buff[end - begin] = '\0';
 	procs = my_calloc(pipes + 2, sizeof(t_node *));
 	if (procs == NULL)
