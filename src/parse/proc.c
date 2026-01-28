@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 16:14:17 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/29 13:04:09 by angsanch         ###   ########.fr       */
+/*   Updated: 2026/01/27 20:02:33 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static char	*remove_quotes(char *line, int pos)
 	my_memmove(&line[pos], &line[pos + 1], p2 - pos - 1);
 	my_memmove(&line[p2 - 1], &line[p2 + 1], my_strlen(&line[p2 + 1]));
 	line[my_strlen(line) - 2] = '\0';
-	my_printf("%s\n", line);
 	return (remove_quotes(line, p2 - 1));
 }
 

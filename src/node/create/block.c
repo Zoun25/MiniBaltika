@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 01:02:37 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/18 00:53:20 by angsanch         ###   ########.fr       */
+/*   Updated: 2026/01/28 19:38:20 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_node	*node_create_block(unsigned int c, t_node_proc **proc)
 		node_destroy((t_node *)n);
 		return (NULL);
 	}
-	c --;
+	n->status = (struct s_pipe){-1, -1};
 	while (c > 0)
 	{
 		n->pipes[c - 1].read = -1;
