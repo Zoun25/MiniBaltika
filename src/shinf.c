@@ -15,16 +15,39 @@
 #include "env.h"
 
 #include "basic.h"
+#include "my_printf.h"
 
-t_shinf	*shinf_create(char **env)
+static bool	update_shlvl(t_shinf *sh)
 {
-	t_shinf		*sh;
+	t_env_var	*var;
+	char		*tmp;
+
+	tmp = NULL;
+	var = get_env_var(sh, "SHLVL");
+	if (var == NULL)
+	{
+		if (!set_env_var(sh, "SHLVL", "1"))
+			return (false);
+	}
+	else
+	{
+		if (my_sbufferf(&tmp, "%d", my_getnbr(var->value) + 1) < 0)
+			return (false);
+		if (!set_env_var(sh, "SHLVL", tmp))
+		{
+			free(tmp);
+			return (false);
+		}
+		free(tmp);
+	}
+	return (true);
+}
+
+static t_shinf	*shinf_env(t_shinf *sh, char **env)
+{
 	size_t		i;
 	t_env_var	*var;
 
-	sh = my_calloc(1, sizeof(t_shinf));
-	if (sh == NULL)
-		return (NULL);
 	list_initialize(&sh->list_env, (void (*)(void *)) & destroy_env_var);
 	i = 0;
 	while (env[i])
@@ -34,14 +57,27 @@ t_shinf	*shinf_create(char **env)
 			return (shinf_destroy(sh), NULL);
 		if (!list_append(&sh->list_env, var))
 			destroy_env_var(var);
-		if (my_strcmp(var->name, "PATH") == 0)
-			update_path(sh, var->value);
 		i ++;
 	}
+	var = get_env_var(sh, "PATH");
+	if (var != NULL)
+		update_path(sh, var->value);
+	if (update_shlvl(sh) == false)
+		return (shinf_destroy(sh), NULL);
 	sh->env = (char **)list_export(&sh->list_env,
 			(void *(*)(void *)) & assemble_env_var);
-	getcwd(sh->work_dir, MAX_PATH_LEN);
 	return (sh);
+}
+
+t_shinf	*shinf_create(char **env)
+{
+	t_shinf		*sh;
+
+	sh = my_calloc(1, sizeof(t_shinf));
+	if (sh == NULL)
+		return (NULL);
+	getcwd(sh->work_dir, MAX_PATH_LEN);
+	return (shinf_env(sh, env));
 }
 
 void	shinf_destroy(t_shinf *sh)
