@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 02:49:44 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/17 03:43:44 by angsanch         ###   ########.fr       */
+/*   Updated: 2026/02/17 21:59:11 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ static int	here_doc(char *in)
 		return (-1);
 	while (true)
 	{
-		l = mini_line(false);
+		my_putstr("> ");
+		l = get_next_line(0);
 		if (l == NULL)
 			break ;
 		len = my_strlen(l);

@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 03:44:43 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/18 20:17:23 by angsanch         ###   ########.fr       */
+/*   Updated: 2026/02/17 21:43:32 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef enum redirections
 void			executor_signals(void);
 void			child_signals(void);
 
-char			*mini_line(bool print);
+char			*mini_line(t_shinf *sh, bool print);
 int				open_redir(t_redir redir, char *arg);
 void			close_pipe(struct s_pipe *pipe);
 t_executable	get_executable(t_shinf *sh, char *command);

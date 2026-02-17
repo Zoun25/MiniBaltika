@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 00:55:22 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/18 14:37:51 by angsanch         ###   ########.fr       */
+/*   Updated: 2026/02/17 21:44:25 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	loop(t_shinf *sh)
 
 	while (true)
 	{
-		line = mini_line(true);
+		line = mini_line(sh, true);
 		if (line == NULL)
 			break ;
 		tree = parse_line(sh, line);
