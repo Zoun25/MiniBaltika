@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 00:55:22 by angsanch          #+#    #+#             */
-/*   Updated: 2026/02/17 21:44:25 by angsanch         ###   ########.fr       */
+/*   Updated: 2026/05/03 23:26:23 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	end(t_shinf *sh)
 
 	status = sh->status_code;
 	shinf_destroy(sh);
-	gnl_flush();
 	exit(status);
 }
 

@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 02:49:44 by angsanch          #+#    #+#             */
-/*   Updated: 2026/02/17 21:59:11 by angsanch         ###   ########.fr       */
+/*   Updated: 2026/05/03 23:26:50 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ static int	here_doc(char *in)
 		write(p.write, l, len);
 		free(l);
 	}
-	gnl_flush();
 	close(p.write);
 	return (p.read);
 }
