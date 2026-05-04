@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 01:02:37 by angsanch          #+#    #+#             */
-/*   Updated: 2026/01/28 19:38:20 by angsanch         ###   ########.fr       */
+/*   Updated: 2026/05/04 02:36:05 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ t_node	*node_create_block(unsigned int c, t_node_proc **proc)
 	n->type.type = BLOCK;
 	n->amount = c;
 	n->proc = proc;
-	n->pipes = my_calloc(sizeof(struct s_pipe), c - 1);
+	n->pipes = my_calloc(sizeof(struct s_pipe), c);
+	printf("%u %p\n", c, n->pipes);
 	if (n->pipes == NULL)
 	{
 		node_destroy((t_node *)n);
