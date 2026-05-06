@@ -6,7 +6,7 @@
 /*   By: angsanch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 20:54:30 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/18 14:07:14 by angsanch         ###   ########.fr       */
+/*   Updated: 2026/05/06 19:22:17 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ typedef t_zero		t_node_nop;
 
 void	node_print(t_node *node);
 bool	node_validate(t_node *node);
+t_node	*node_parse(t_shinf *sh, char **tokens);
 int		node_exec(t_shinf *sh, t_node *node);
 void	node_destroy(t_node *node);
 

@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 03:44:43 by angsanch          #+#    #+#             */
-/*   Updated: 2026/02/17 21:43:32 by angsanch         ###   ########.fr       */
+/*   Updated: 2026/05/06 19:27:50 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ int				open_redir(t_redir redir, char *arg);
 void			close_pipe(struct s_pipe *pipe);
 t_executable	get_executable(t_shinf *sh, char *command);
 void			manage_children(t_shinf *sh, t_node_block *block);
+
+bool			tokenize(char *line, t_list *tokens);
 
 #endif

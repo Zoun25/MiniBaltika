@@ -6,13 +6,12 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 00:55:22 by angsanch          #+#    #+#             */
-/*   Updated: 2026/05/03 23:26:23 by angsanch         ###   ########.fr       */
+/*   Updated: 2026/05/06 19:29:59 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini.h"
 #include "input.h"
-#include "parse.h"
 #include "node.h"
 #include "env.h"
 
@@ -29,6 +28,22 @@ void	end(t_shinf *sh)
 	exit(status);
 }
 
+t_node *full_parse(t_shinf *sh, char *line)
+{
+	t_list	tokens;
+	char	**array_tokens;
+	t_node	*tree;
+
+	list_initialize(&tokens, &free);
+	if (!tokenize(line, &tokens))
+		return (list_delete(&tokens), NULL);
+	array_tokens = (char **)list_export(&tokens, NULL);
+	tree = node_parse(sh, array_tokens);
+	free(array_tokens);
+	list_delete(&tokens);
+	return (tree);
+}
+
 static void	loop(t_shinf *sh)
 {
 	char	*line;
@@ -39,7 +54,7 @@ static void	loop(t_shinf *sh)
 		line = mini_line(sh, true);
 		if (line == NULL)
 			break ;
-		tree = parse_line(sh, line);
+		tree = full_parse(sh, line);
 		if (!node_validate(tree))
 		{
 			sh->status_code = 1;
