@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 00:58:54 by angsanch          #+#    #+#             */
-/*   Updated: 2025/10/18 09:38:27 by angsanch         ###   ########.fr       */
+/*   Updated: 2026/05/12 20:43:43 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define MINI_H
 
 # include <stdlib.h>
-# include <linked_list.h>
 
+# include "linked_list.h"
 # include "builtin/list.h"
 
 # ifndef MAX_PATH_LEN

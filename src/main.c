@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 00:55:22 by angsanch          #+#    #+#             */
-/*   Updated: 2026/05/06 19:29:59 by angsanch         ###   ########.fr       */
+/*   Updated: 2026/05/12 21:38:51 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "input.h"
 #include "node.h"
 #include "env.h"
+#include "token/token.h"
 
 #include "basic.h"
 #include "my_printf.h"
@@ -28,16 +29,16 @@ void	end(t_shinf *sh)
 	exit(status);
 }
 
-t_node *full_parse(t_shinf *sh, char *line)
+t_node	*full_parse(t_shinf *sh, char *line)
 {
 	t_list	tokens;
-	char	**array_tokens;
+	t_token	**array_tokens;
 	t_node	*tree;
 
-	list_initialize(&tokens, &free);
+	list_initialize(&tokens, (void (*)(void *)) & token_destroy);
 	if (!tokenize(line, &tokens))
 		return (list_delete(&tokens), NULL);
-	array_tokens = (char **)list_export(&tokens, NULL);
+	array_tokens = (t_token **)list_export(&tokens, NULL);
 	tree = node_parse(sh, array_tokens);
 	free(array_tokens);
 	list_delete(&tokens);
