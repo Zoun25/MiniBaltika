@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 00:55:22 by angsanch          #+#    #+#             */
-/*   Updated: 2026/05/12 21:38:51 by angsanch         ###   ########.fr       */
+/*   Updated: 2026/05/13 21:33:01 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ t_node	*full_parse(t_shinf *sh, char *line)
 	if (!tokenize(line, &tokens))
 		return (list_delete(&tokens), NULL);
 	array_tokens = (t_token **)list_export(&tokens, NULL);
-	tree = node_parse(sh, array_tokens);
+	if (array_tokens == NULL)
+		return (list_delete(&tokens), NULL);
+	tree = node_parse(sh, array_tokens, tokens.len);
 	free(array_tokens);
 	list_delete(&tokens);
 	return (tree);

@@ -28,6 +28,7 @@ C_FILES	= src/main.c \
 			src/node/destroy/proc.c \
 			src/node/destroy/line.c \
 			src/node/destroy/destroy.c \
+			src/node/parse/parse.c \
 			src/node/exec/nop.c \
 			src/node/exec/and.c \
 			src/node/exec/or.c \
