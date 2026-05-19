@@ -28,6 +28,13 @@ C_FILES	= src/main.c \
 			src/node/destroy/proc.c \
 			src/node/destroy/line.c \
 			src/node/destroy/destroy.c \
+			src/node/parse/nop.c \
+			src/node/parse/and.c \
+			src/node/parse/or.c \
+			src/node/parse/semicolon.c \
+			src/node/parse/block.c \
+			src/node/parse/proc.c \
+			src/node/parse/line.c \
 			src/node/parse/parse.c \
 			src/node/exec/nop.c \
 			src/node/exec/and.c \

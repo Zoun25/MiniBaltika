@@ -6,7 +6,7 @@
 /*   By: angsanch <angsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 00:04:49 by angsanch          #+#    #+#             */
-/*   Updated: 2026/05/12 21:37:20 by angsanch         ###   ########.fr       */
+/*   Updated: 2026/05/19 19:57:47 by angsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 
 enum e_token_type
 {
-	TOKEN_SEMICOLON,
-	TOKEN_AND,
-	TOKEN_OR,
-	TOKEN_PIPE,
-	TOKEN_LINEBREAK,
-	TOKEN_REDIRECTION,
-	TOKEN_WORD,
+	TOKEN_SEMICOLON		= 0b0000001,
+	TOKEN_AND			= 0b0000010,
+	TOKEN_OR			= 0b0000100,
+	TOKEN_PIPE			= 0b0001000,
+	TOKEN_LINEBREAK		= 0b0010000,
+	TOKEN_REDIRECTION	= 0b0100000,
+	TOKEN_WORD			= 0b1000000,
 };
 
 typedef struct token
